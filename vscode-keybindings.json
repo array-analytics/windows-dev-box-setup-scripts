@@ -1,0 +1,7 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {"key": "ctrl+d", "command": "editor.action.copyLinesDownAction", "when": "editorTextFocus"},
+  {"key": "alt+enter", "command": "editor.action.quickFix", "when": "editorTextFocus"},
+  {"key": "alt+f7", "command": "editor.action.referenceSearch.trigger", "when": "editorTextFocus"},
+  {"key": "ctrl+alt+n", "command": "workbench.action.quickOpen"}
+]
