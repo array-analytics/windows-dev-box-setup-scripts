@@ -1,4 +1,10 @@
 
+#for array
+<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/dev_array.ps1'>
+  Install my tools!
+</a>
+
+
 # About this project
 The goal of this project is to provide a central place to share ideas for streamlining dev box setup and provide sample scripts for common dev scenarios. It's likely you will want to take the scripts here and modify them to fit your particular needs. When you make those changes if you think others would benefit please consider submitting a PR. Before you contribute please see the [Contribution Guidelines](CONTRIBUTING.md).
 
@@ -13,16 +19,6 @@ https://boxstarter.org/Learn/WebLauncher
 Before you begin, please read the [Legal](#Legal) section.
 
 To run a setup script, click a link in the table below from your target machine. This will download Boxstarter, and prompt you for Boxstarter to run with Administrator privileges (which it needs to do its job). Clicking yes in this dialog will cause the script to begin. You can then leave the job unattended and come back when it's finished.
-
-|Click link to run  |Description  |
-|---------|---------|
-|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Microsoft/windows-dev-box-setup-scripts/master/dev_app.ps1'>Desktop App</a>     | Windows Desktop App Development (Visual Studio, Windows SDK) |
-|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Microsoft/windows-dev-box-setup-scripts/master/dev_web.ps1'>Web</a> | Web (VS Code, WSL, Multiple Browsers)        |
-|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Microsoft/windows-dev-box-setup-scripts/master/dev_web_nodejs.ps1'>Web NodeJS</a>     | Web Dev with NodeJS (Web + NodeJS LTS)¹        |
-|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Microsoft/windows-dev-box-setup-scripts/master/dev_ml_python.ps1'>Machine Learning</a>| Machine Learning (Python, WSL, VS Code)        |
-|     | Xamarin (Visual Studio, Xamarin, Android SDK) |
-|     | Containers (Docker, Kubernetes, etc...)        |
-|     | More Coming Soon!        |
 
 **Notes:**  
 ¹ If you're a Node.js contributor working on Node.js core, please see the [Node.js Bootstrapping Guide](https://github.com/nodejs/node/tree/master/tools/bootstrap) or [click here to run](http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter).

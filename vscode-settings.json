@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite the default settings
+{
+      "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+      "editor.fontSize": 14,
+      "editor.fontLigatures": true,
+      "editor.tabSize": 2,
+      "workbench.iconTheme": "vscode-icons",
+      "vsicons.dontShowNewVersionMessage": true,
+      "team.showWelcomeMessage": false
+}

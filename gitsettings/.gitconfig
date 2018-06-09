@@ -1,0 +1,66 @@
+[alias]
+	up = "!git remote update -p; git merge --ff-only @{u}"
+	p = pull --rebase
+	pu = "!git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+	st = status -s
+	a = add
+	ap = add -p
+	aa = !git add -u && git add . && git st
+	c = commit --verbose
+	cm = commit -m
+	ca = commit --amend -C HEAD
+	co = checkout
+	cob = checkout -b
+	br = branch
+	un = reset --soft HEAD~
+	last = log -1 HEAD
+	logtree = log --graph --oneline --decorate --all
+	ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate
+	ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --numstat
+	ld = log --pretty=format:%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --date=relative
+	lnc = log --pretty=format:%h\\ %s\\ [%cn]
+	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+	dl = !git ll -1
+	dlc = diff --cached HEAD^
+	filelog = log -u
+	fl = log -u
+	dr = "!f() { git diff $1^..$1; }; f"
+	lc = "!f() { git ll $1^..$1; }; f"
+	diffr = "!f() { git diff $1^..$1; }; f"
+	b = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+	la = !git config -l | grep alias | cut -c 7-
+	f = !git ls-files | grep -i
+	grep = grep -Ii
+	gr = grep -Ii
+	gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+	open = !explorer `git config remote.origin.url`
+	browse = !git open
+	hh = push heroku heroku
+[gui]
+[push]
+	default = matching
+	followTags = true
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+[diff]
+	tool = kdiff3
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+[http]
+	postBuffer = 157286400
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[url "https://github"]
+	insteadOf = git://github
+[core]
+	autocrlf = true
+[pack]
+	window = 0
+[credential]
+	helper = manager

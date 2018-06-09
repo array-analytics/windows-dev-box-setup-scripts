@@ -7,7 +7,6 @@ Disable-UAC
 #--- Windows Subsystems/Features ---
 choco install -y Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 choco install -y Microsoft-Hyper-V-All -source windowsFeatures
-#choco install -y docker-for-windows
 
 #--- Configuring Windows properties ---
 #--- Windows Features ---
@@ -28,8 +27,33 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 Set-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\AppModelUnlock -Name AllowDevelopmentWithoutDevLicense -Value 1
 
 #--- Ubuntu ---
-Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.appx -UseBasicParsing
+#Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.appx -UseBasicParsing
+#Add-AppxPackage -Path ~/Ubuntu.appx
 
+#-- set up folder paths
+if (!(Test-Path -Path C:\Array )) {
+  mkdir C:\Array
+}
+
+if (!(Test-Path -Path C:\Tools )) {
+  mkdir C:\Tools
+}
+
+if (!(Test-Path -Path C:\Array\vso )) {
+  mkdir C:\Array\vso
+}
+
+if (!(Test-Path -Path C:\Array\plastic )) {
+  mkdir C:\Array\platic
+}
+
+if (!(Test-Path -Path C:\Array\plastic\central )) {
+  mkdir C:\Array\platic\central
+}
+
+if (!(Test-Path -Path C:\Array\plastic\local )) {
+  mkdir C:\Array\platic\local
+}
 
 #--- VS 2017 uwp and azure workloads + git tools ---
 # See this for install args: https://chocolatey.org/packages/VisualStudio2017Professional
@@ -46,10 +70,12 @@ RefreshEnv
 
 choco install -y git -params '"/GitOnlyOnPath /WindowsTerminal"'
 RefreshEnv
+# fonts
+choco install -y inconsolata FiraCode
 choco install -y googlechrome Firefox
 RefreshEnv
 
-choco install -y 7zip 7zip.install curl cmder FiraCode kdiff3 keepass keepass.instal nodejs nodejs.install paint.net notepadplusplus notepadplusplus.install poshgit 
+choco install -y 7zip 7zip.install curl cmder  kdiff3 keepass nodejs paint.net notepadplusplus poshgit microsoft-teams
 choco install -y SourceTree resharper sysinternals yarn
 RefreshEnv
 
@@ -71,6 +97,36 @@ code --install-extension christian-kohler.npm-intellisense
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension eg2.tslint
 code --install-extension ms-vsliveshare.vsliveshare
+
+#-- set up folder paths
+if (!(Test-Path -Path C:\Temp )) {
+  mkdir C:\Temp
+}
+
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-keybindings.json" -OutFile "$env:APPDATA/Code/User/keybindings.json"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-settings.json" -OutFile "$env:APPDATA/Code/User/settings.json"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/array-base-VS.vssettings" -OutFile "C:/Temp/User/array-base-VS.vssettings"
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/LSPadded.ps1" -OutFile "C:/tools/cmder/config/Scripts/LSPadded.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/New-CommandWrapper.ps1" -OutFile "C:/tools/cmder/config/Scripts/New-CommandWrapper.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Scripts/Write-Color-LS.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/ConEmu.xml" -OutFile "C:/tools/cmder/config/ConEmu.xml"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/settings" -OutFile "C:/tools/cmder/config/settings"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-ConEmu.xml" -OutFile "C:/tools/cmder/config/user-ConEmu.xml"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-profile.ps1" -OutFile "C:/tools/cmder/config/user-profile.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Write-Color-LS.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/vendor-profile.ps1" -OutFile "C:/tools/cmder/vendor/profile.ps1"
+
+#need to figure out how to install vsix
+# https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ASPNETCoreTemplatePack20173
+# https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebExtensionPack2017
+# https://marketplace.visualstudio.com/items?itemName=MadsKristensen.TrailingWhitespaceVisualizer
+# https://marketplace.visualstudio.com/items?itemName=MadsKristensen.NPMTaskRunner
+# https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ignore
+# https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.ProductivityPowerPack2017
+
+
 
 
 # Disable Xbox Gamebar
@@ -128,13 +184,6 @@ Get-AppxPackage *DisneyMagicKingdom* | Remove-AppxPackage
 Get-AppxPackage *HiddenCityMysteryofShadows* | Remove-AppxPackage
 
 
-#--- grabbing latest UWP Samples off Github ---
-RefreshEnv
-cd $env:USERPROFILE\desktop
-mkdir UwpSamples
-
-# installing Windows Template Studio VSIX
-
 
 
 # Privacy: Let apps use my advertising ID: Disable
@@ -156,6 +205,7 @@ Set-ItemProperty -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\Allow
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 0
 
 
+devenv /ResetSettings "C:/Temp/User/array-base-VS.vssettings"
 
 #--- reenabling critial items ---
 Enable-UAC
