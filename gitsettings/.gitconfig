@@ -1,7 +1,6 @@
 [alias]
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	p = pull --rebase
-	pu = "!git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 	st = status -s
 	a = add
 	ap = add -p
@@ -11,13 +10,14 @@
 	ca = commit --amend -C HEAD
 	co = checkout
 	cob = checkout -b
-	br = branch
+	br = branch -vv
 	un = reset --soft HEAD~
 	last = log -1 HEAD
+	lt = log --graph --oneline --decorate --all
 	logtree = log --graph --oneline --decorate --all
-	ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate
-	ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --numstat
-	ld = log --pretty=format:%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --date=relative
+	ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate
+	ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --numstat
+	ld = log --pretty=format:%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --date=relative
 	lnc = log --pretty=format:%h\\ %s\\ [%cn]
 	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
 	dl = !git ll -1
