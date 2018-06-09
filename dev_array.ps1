@@ -75,7 +75,7 @@ choco install -y inconsolata FiraCode
 choco install -y googlechrome Firefox
 RefreshEnv
 
-choco install -y 7zip 7zip.install curl cmder  kdiff3 keepass nodejs paint.net notepadplusplus poshgit microsoft-teams
+choco install -y 7zip 7zip.install curl cmder  kdiff3 keepass nodejs paint.net notepadplusplus poshgit microsoft-teams jdk8
 choco install -y SourceTree resharper sysinternals yarn
 RefreshEnv
 
@@ -113,7 +113,7 @@ npm install -g ts-node
 npm install -g swagger-cli
 npm install -g typescript@2.8.1
 npm install -g typings@2.1.1
-
+npm install -g selenium-standalone
 
 #-- set up folder paths
 if (!(Test-Path -Path C:\Temp )) {
@@ -229,7 +229,19 @@ Set-ItemProperty -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\Allow
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name BingSearchEnabled -Type DWord -Value 0
 
 
+# install the temp settings
 devenv /ResetSettings "C:/Temp/User/array-base-VS.vssettings"
+
+#install templates for dotnetnew
+dotnet new --install "Microsoft.AspNetCore.SpaTemplates"
+dotnet new --install "Microsoft.DotNet.Web.Spa.ProjectTemplates"
+dotnet new --install "IdentityServer4.Templates"
+dotnet new --install "Boilerplate.Templates"
+dotnet new --install "Microsoft.AspNetCore.Blazor.Templates"
+dotnet new --install "MadsKristensen.AspNetCore.Web.Templates::*"
+
+# this requires interaction
+choco install notepadreplacer
 
 #--- reenabling critial items ---
 Enable-UAC
