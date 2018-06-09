@@ -98,16 +98,36 @@ code --install-extension robertohuertasm.vscode-icons
 code --install-extension eg2.tslint
 code --install-extension ms-vsliveshare.vsliveshare
 
+
+npm install -g aurelia-cli@0.31.3
+npm install -g autorest
+npm install -g bower
+npm install -g dts
+npm install -g yo generator-aspnet generator-docker
+npm install -g gulp gulp-cli gulp-notify
+npm install -g grunt grunt-cli
+npm install -g jspm@0.16.53
+npm install -g npm-windows-upgrade
+npm install -g semistandard
+npm install -g ts-node
+npm install -g swagger-cli
+npm install -g typescript@2.8.1
+npm install -g typings@2.1.1
+
+
 #-- set up folder paths
 if (!(Test-Path -Path C:\Temp )) {
   mkdir C:\Temp
 }
 
-
+# set up vscode settings
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-keybindings.json" -OutFile "$env:APPDATA/Code/User/keybindings.json"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-settings.json" -OutFile "$env:APPDATA/Code/User/settings.json"
+
+# set up vs studio base settings (basically fonts and files binds)
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/array-base-VS.vssettings" -OutFile "C:/Temp/User/array-base-VS.vssettings"
 
+# setup Cmder
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/LSPadded.ps1" -OutFile "C:/tools/cmder/config/Scripts/LSPadded.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/New-CommandWrapper.ps1" -OutFile "C:/tools/cmder/config/Scripts/New-CommandWrapper.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Scripts/Write-Color-LS.ps1"
@@ -117,6 +137,10 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/window
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-profile.ps1" -OutFile "C:/tools/cmder/config/user-profile.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Write-Color-LS.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/vendor-profile.ps1" -OutFile "C:/tools/cmder/vendor/profile.ps1"
+
+# setup git
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/gitsettings/.gitconfig" -OutFile "$env:USERPROFILE/.gitconfig"
+
 
 #need to figure out how to install vsix
 # https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ASPNETCoreTemplatePack20173
