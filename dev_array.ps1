@@ -149,7 +149,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/window
 # https://marketplace.visualstudio.com/items?itemName=MadsKristensen.NPMTaskRunner
 # https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ignore
 # https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.ProductivityPowerPack2017
-
+# and this: http://mike-ward.net/vscoloroutput/
 
 
 
