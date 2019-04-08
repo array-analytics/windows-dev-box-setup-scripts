@@ -99,20 +99,20 @@ code --install-extension eg2.tslint
 code --install-extension ms-vsliveshare.vsliveshare
 
 
-npm install -g aurelia-cli@0.31.3
+npm install -g aurelia-cli
 npm install -g autorest
 npm install -g bower
 npm install -g dts
 npm install -g yo generator-aspnet generator-docker
 npm install -g gulp gulp-cli gulp-notify
 npm install -g grunt grunt-cli
-npm install -g jspm@0.16.53
+npm install -g jspm
 npm install -g npm-windows-upgrade
 npm install -g semistandard
 npm install -g ts-node
 npm install -g swagger-cli
-npm install -g typescript@2.8.1
-npm install -g typings@2.1.1
+npm install -g typescript
+npm install -g typings
 npm install -g selenium-standalone
 
 #-- set up folder paths
