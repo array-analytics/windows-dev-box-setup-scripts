@@ -68,7 +68,7 @@ RefreshEnv
 choco install -y KB2919355 KB2919442 KB2999226 KB3033929 KB3035131 chocolatey-windowsupdate.extension chocolatey-core.extension vcredist140 vcredist2010 vcredist2015
 RefreshEnv
 
-choco install -y git -params '"/GitOnlyOnPath /WindowsTerminal"'
+choco install -y git --package-parameters="'/GitOnlyOnPath /WindowsTerminal'"
 RefreshEnv
 # fonts
 choco install -y inconsolata FiraCode
@@ -76,7 +76,7 @@ choco install -y googlechrome Firefox
 RefreshEnv
 
 choco install -y 7zip 7zip.install curl cmder  kdiff3 keepass nodejs paint.net notepadplusplus poshgit microsoft-teams jdk8
-choco install -y SourceTree resharper sysinternals yarn
+choco install -y SourceTree resharper sysinternals yarn slack
 RefreshEnv
 
 choco install -y visualstudiocode
