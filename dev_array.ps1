@@ -5,8 +5,8 @@
 Disable-UAC
 
 #--- Windows Subsystems/Features ---
-choco install -y Microsoft-Windows-Subsystem-Linux -source windowsfeatures
-choco install -y Microsoft-Hyper-V-All -source windowsFeatures
+choco install -y Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
+choco install -y Microsoft-Hyper-V-All --source="'windowsfeatures'"
 
 #--- Configuring Windows properties ---
 #--- Windows Features ---
@@ -97,6 +97,8 @@ code --install-extension christian-kohler.npm-intellisense
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension eg2.tslint
 code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension msjsdiag.debugger-for-edge
 
 
 npm install -g aurelia-cli
@@ -242,6 +244,15 @@ dotnet new --install "MadsKristensen.AspNetCore.Web.Templates::*"
 
 # this requires interaction
 choco install notepadreplacer
+
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Ubuntu.appx -UseBasicParsing
+Add-AppxPackage -Path ~/Ubuntu.appx
+
+RefreshEnv
+Ubuntu1804 install --root
+Ubuntu1804 run apt update
+Ubuntu1804 run apt upgrade -y
+
 
 #--- reenabling critial items ---
 Enable-UAC
