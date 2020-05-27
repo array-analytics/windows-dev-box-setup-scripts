@@ -43,23 +43,23 @@ if (!(Test-Path -Path C:\Array\vso )) {
   mkdir C:\Array\vso
 }
 
-if (!(Test-Path -Path C:\Array\plastic )) {
-  mkdir C:\Array\platic
-}
+#if (!(Test-Path -Path C:\Array\plastic )) {
+#  mkdir C:\Array\platic
+#}
 
-if (!(Test-Path -Path C:\Array\plastic\central )) {
-  mkdir C:\Array\platic\central
-}
+#if (!(Test-Path -Path C:\Array\plastic\central )) {
+#  mkdir C:\Array\platic\central
+#}
 
-if (!(Test-Path -Path C:\Array\plastic\local )) {
-  mkdir C:\Array\platic\local
-}
+#if (!(Test-Path -Path C:\Array\plastic\local )) {
+#  mkdir C:\Array\platic\local
+#}
 
 #--- VS 2017 uwp and azure workloads + git tools ---
 # See this for install args: https://chocolatey.org/packages/VisualStudio2017Professional
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-community 
 # https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio#list-of-workload-ids-and-component-ids
-choco install -y visualstudio2017professional --package-parameters "--add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.Azure --add Microsoft.VisualStudio.Workload.NetCoreTools --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.Net.ComponentGroup.TargetingPacks.Common --add Microsoft.Component.Azure.DataLake.Tools --add Microsoft.VisualStudio.Component.Azure.ResourceManager.Tools --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.ComponentGroup.Azure.CloudServices --add Microsoft.VisualStudio.ComponentGroup.Azure.ResourceManager.Tools --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.ComponentGroup.Web.CloudTools --add Microsoft.VisualStudio.Component.AppInsights.Tools --add Microsoft.VisualStudio.Component.Wcf.Tooling --add Microsoft.Net.Component.4.6.2.SDK --add Microsoft.Net.Component.4.7.SDK --add Microsoft.Net.Component.4.7.1.SDK --add Microsoft.Net.Component.4.6.2.TargetingPack --add Microsoft.Net.Component.4.7.TargetingPack --add Microsoft.Net.Component.4.7.1.TargetingPack --add Microsoft.Net.ComponentGroup.4.6.2.DeveloperTools --add Microsoft.Net.ComponentGroup.4.7.DeveloperTools --add Microsoft.Net.ComponentGroup.4.7.1.DeveloperTools --add Microsoft.VisualStudio.Component.Azure.Storage.AzCopy --add Microsoft.VisualStudio.Component.AspNet45 --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.Component.Azure.Waverton --add Microsoft.VisualStudio.Component.Azure.Waverton.BuildTools --add Microsoft.VisualStudio.Component.TypeScript.2.1 --add Microsoft.VisualStudio.Component.TypeScript.2.2 --add Microsoft.VisualStudio.Component.TypeScript.2.5 --add Microsoft.VisualStudio.Component.TypeScript.2.6 --add Microsoft.VisualStudio.Component.TestTools.Core --add Microsoft.VisualStudio.Component.Git --remove Component.Redgate.SQLSearch.VSExtension --remove Component.Dotfuscator --remove Microsoft.ComponentGroup.Blend --remove Microsoft.Component.HelpViewer"
+choco install -y visualstudio2019professional --package-parameters "--add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.Azure --add Microsoft.VisualStudio.Workload.NetCoreTools --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.Net.ComponentGroup.TargetingPacks.Common --add Microsoft.Component.Azure.DataLake.Tools --add Microsoft.VisualStudio.Component.Azure.ResourceManager.Tools --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.ComponentGroup.Azure.CloudServices --add Microsoft.VisualStudio.ComponentGroup.Azure.ResourceManager.Tools --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.ComponentGroup.Web.CloudTools --add Microsoft.VisualStudio.Component.AppInsights.Tools --add Microsoft.VisualStudio.Component.Wcf.Tooling --add Microsoft.Net.Component.4.6.2.SDK --add Microsoft.Net.Component.4.7.SDK --add Microsoft.Net.Component.4.7.1.SDK --add Microsoft.Net.Component.4.6.2.TargetingPack --add Microsoft.Net.Component.4.7.TargetingPack --add Microsoft.Net.Component.4.7.1.TargetingPack --add Microsoft.Net.ComponentGroup.4.6.2.DeveloperTools --add Microsoft.Net.ComponentGroup.4.7.DeveloperTools --add Microsoft.Net.ComponentGroup.4.7.1.DeveloperTools --add Microsoft.VisualStudio.Component.Azure.Storage.AzCopy --add Microsoft.VisualStudio.Component.AspNet45 --add Microsoft.VisualStudio.Component.DiagnosticTools --add Microsoft.VisualStudio.Component.Azure.Waverton --add Microsoft.VisualStudio.Component.Azure.Waverton.BuildTools --add Microsoft.VisualStudio.Component.TypeScript.2.1 --add Microsoft.VisualStudio.Component.TypeScript.2.2 --add Microsoft.VisualStudio.Component.TypeScript.2.5 --add Microsoft.VisualStudio.Component.TypeScript.2.6 --add Microsoft.VisualStudio.Component.TestTools.Core --add Microsoft.VisualStudio.Component.Git --remove Component.Redgate.SQLSearch.VSExtension --remove Component.Dotfuscator --remove Microsoft.ComponentGroup.Blend --remove Microsoft.Component.HelpViewer"
 RefreshEnv
 
 choco install chocolatey-visualstudio.extension
@@ -75,23 +75,23 @@ choco install -y inconsolata FiraCode
 choco install -y googlechrome Firefox
 RefreshEnv
 
-choco install -y 7zip 7zip.install curl cmder  kdiff3 keepass nodejs paint.net notepadplusplus poshgit microsoft-teams jdk8
+choco install -y 7zip 7zip.install curl kdiff3 keepass nodejs paint.net notepadplusplus poshgit
 choco install -y SourceTree resharper sysinternals yarn slack
 RefreshEnv
 
 choco install -y visualstudiocode
 RefreshEnv
 
-code --install-extension aureliaeffect.aurelia
-code --install-extension behzad88.aurelia
+#code --install-extension aureliaeffect.aurelia
+#code --install-extension behzad88.aurelia
 code --install-extension steoates.autoimport
 code --install-extension jerryhong.autofilename
 code --install-extension ms-vscode.azure-account
-code --install-extension ms-azuretools.vscode-azureappservice
+#code --install-extension ms-azuretools.vscode-azureappservice
 code --install-extension ms-vscode.azurecli
 code --install-extension ms-vscode.csharp
 code --install-extension fknop.vscode-npm
-code --install-extension alefragnani.project-manager
+#code --install-extension alefragnani.project-manager
 code --install-extension xabikos.javascriptsnippets
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension robertohuertasm.vscode-icons
@@ -101,7 +101,7 @@ code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension msjsdiag.debugger-for-edge
 
 
-npm install -g aurelia-cli
+#npm install -g aurelia-cli
 npm install -g autorest
 npm install -g bower
 npm install -g dts
@@ -123,22 +123,22 @@ if (!(Test-Path -Path C:\Temp )) {
 }
 
 # set up vscode settings
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-keybindings.json" -OutFile "$env:APPDATA/Code/User/keybindings.json"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-settings.json" -OutFile "$env:APPDATA/Code/User/settings.json"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-keybindings.json" -OutFile "$env:APPDATA/Code/User/keybindings.json"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/vscode-settings.json" -OutFile "$env:APPDATA/Code/User/settings.json"
 
 # set up vs studio base settings (basically fonts and files binds)
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/array-base-VS.vssettings" -OutFile "C:/Temp/User/array-base-VS.vssettings"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/array-base-VS.vssettings" -OutFile "C:/Temp/User/array-base-VS.vssettings"
 
 # setup Cmder
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/LSPadded.ps1" -OutFile "C:/tools/cmder/config/Scripts/LSPadded.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/New-CommandWrapper.ps1" -OutFile "C:/tools/cmder/config/Scripts/New-CommandWrapper.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Scripts/Write-Color-LS.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/ConEmu.xml" -OutFile "C:/tools/cmder/config/ConEmu.xml"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/settings" -OutFile "C:/tools/cmder/config/settings"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-ConEmu.xml" -OutFile "C:/tools/cmder/config/user-ConEmu.xml"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-profile.ps1" -OutFile "C:/tools/cmder/config/user-profile.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Write-Color-LS.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/vendor-profile.ps1" -OutFile "C:/tools/cmder/vendor/profile.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/LSPadded.ps1" -OutFile "C:/tools/cmder/config/Scripts/LSPadded.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/New-CommandWrapper.ps1" -OutFile "C:/tools/cmder/config/Scripts/New-CommandWrapper.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Scripts/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Scripts/Write-Color-LS.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/ConEmu.xml" -OutFile "C:/tools/cmder/config/ConEmu.xml"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/settings" -OutFile "C:/tools/cmder/config/settings"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-ConEmu.xml" -OutFile "C:/tools/cmder/config/user-ConEmu.xml"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/user-profile.ps1" -OutFile "C:/tools/cmder/config/user-profile.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/Write-Color-LS.ps1" -OutFile "C:/tools/cmder/config/Write-Color-LS.ps1"
+#Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/cmder-configs/vendor-profile.ps1" -OutFile "C:/tools/cmder/vendor/profile.ps1"
 
 # setup git
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/array-analytics/windows-dev-box-setup-scripts/master/gitsettings/.gitconfig" -OutFile "$env:USERPROFILE/.gitconfig"
